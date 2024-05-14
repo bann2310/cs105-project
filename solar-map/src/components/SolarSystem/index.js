@@ -30,6 +30,7 @@ function SolarSystem() {
         uranusRef.current.rotateY(0.03);
         neptuneRef.current.rotateY(0.032);
         plutoRef.current.rotateY(0.008);
+        starRef.current.rotateY(0.0001);
 
         mercuryObjectRef.current.rotateY(0.04);
         venusObjectRef.current.rotateY(0.015);
@@ -71,6 +72,8 @@ function SolarSystem() {
 
     const plutoRef = useRef();
     const plutoObjectRef = useRef();
+
+    const starRef = useRef();
     return (
         <>
             <pointLight position={[0, 0, 0]} args={[0xffffff, 30000, 1000]} />
@@ -84,7 +87,7 @@ function SolarSystem() {
             <Uranus ref={{ uranusRef, uranusObjectRef }} />
             <Neptune ref={{ neptuneRef, neptuneObjectRef }} />
             <Pluto ref={{ plutoRef, plutoObjectRef }} />
-            <Stars />
+            <Stars ref={starRef} />
         </>
     );
 }
