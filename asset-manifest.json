@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/cs105-project/static/css/main.5302934c.css",
+    "main.js": "/cs105-project/static/js/main.f4c19f25.js",
+    "static/js/453.86406511.chunk.js": "/cs105-project/static/js/453.86406511.chunk.js",
+    "static/media/sun.jpg": "/cs105-project/static/media/sun.b34e6ead10e18ad3ad77.jpg",
+    "static/media/saturn ring.png": "/cs105-project/static/media/saturn ring.bcc273749ba14b9a1a3c.png",
+    "static/media/uranus ring.png": "/cs105-project/static/media/uranus ring.0c83eac82f5a812ff61c.png",
+    "static/media/earth.jpg": "/cs105-project/static/media/earth.f3d3516ad626def9203b.jpg",
+    "static/media/pluto.jpg": "/cs105-project/static/media/pluto.d86feaab54257fcf668d.jpg",
+    "static/media/mercury.jpg": "/cs105-project/static/media/mercury.00e79a1eabdbbce2ff8a.jpg",
+    "static/media/venus.jpg": "/cs105-project/static/media/venus.840e54b97ff26200bdde.jpg",
+    "static/media/mars.jpg": "/cs105-project/static/media/mars.ff6c47a2547885b72d4b.jpg",
+    "static/media/jupiter.jpg": "/cs105-project/static/media/jupiter.f247fc590e02c428df8c.jpg",
+    "static/media/logouit.png": "/cs105-project/static/media/logouit.a85a9fc7329e76dcebdd.png",
+    "static/media/saturn.jpg": "/cs105-project/static/media/saturn.3995c1b1bfdfc4c07750.jpg",
+    "static/media/neptune.jpg": "/cs105-project/static/media/neptune.bcbf9905e13eedfa7d26.jpg",
+    "static/media/stars.jpg": "/cs105-project/static/media/stars.29ca757ff9bed6d69a42.jpg",
+    "index.html": "/cs105-project/index.html",
+    "main.5302934c.css.map": "/cs105-project/static/css/main.5302934c.css.map",
+    "main.f4c19f25.js.map": "/cs105-project/static/js/main.f4c19f25.js.map",
+    "453.86406511.chunk.js.map": "/cs105-project/static/js/453.86406511.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5302934c.css",
+    "static/js/main.f4c19f25.js"
+  ]
+}
