@@ -1,5 +1,5 @@
 {
-    "name": "cs338",
+    "name": "cs105",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -12,6 +12,8 @@
         "@fortawesome/react-fontawesome": "^0.1.17",
         "@mui/icons-material": "^5.15.15",
         "@mui/material": "^5.15.15",
+        "@react-three/drei": "^9.105.6",
+        "@react-three/fiber": "^8.16.6",
         "@testing-library/jest-dom": "^5.17.0",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
@@ -20,6 +22,7 @@
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-scripts": "5.0.1",
+        "three": "^0.164.1",
         "web-vitals": "^2.1.4"
     },
     "devDependencies": {
