@@ -1,19 +1,27 @@
-import { forwardRef } from 'react';
-import Plant from '../ultils/Plant';
-import solarSystemTexture from '~/public/image';
+import { useRef } from 'react';
+import Plant from '../ultils';
+import datas from '~/data/plants';
+import { useFrame } from '@react-three/fiber';
 
-function Pluto({}, ref) {
+function Pluto() {
+    const data = datas.pluto;
+
+    const ObjectRef = useRef();
+    useFrame(() => {
+        ObjectRef.current.rotateY(data.speedRevolution);
+    });
+
     return (
-        <group ref={ref.plutoObjectRef}>
+        <group ref={ObjectRef}>
             <Plant
-                radius={2.8}
-                img={solarSystemTexture.plutoTexture}
+                radius={data.radius}
+                img={data.img}
                 type={'standard'}
-                position={216}
-                ref={ref.plutoRef}
+                position={data.position}
+                speedRotation={data.speedRotation}
             />
         </group>
     );
 }
 
-export default forwardRef(Pluto);
+export default Pluto;

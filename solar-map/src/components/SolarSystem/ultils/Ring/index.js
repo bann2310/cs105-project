@@ -10,7 +10,7 @@ function Ring({ innerRadius, outerRadius, img, position }) {
         meshRef.current.rotateX(-0.5 * Math.PI);
     }, []);
     return (
-        <mesh position={[position, 0, 0]} ref={meshRef}>
+        <mesh position={[position.position, 0, position.randomZ]} ref={meshRef}>
             <ringGeometry args={[innerRadius, outerRadius]} />
             <meshBasicMaterial map={texture} side={THREE.DoubleSide} />
         </mesh>

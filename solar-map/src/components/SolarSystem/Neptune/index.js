@@ -1,19 +1,27 @@
-import { forwardRef } from 'react';
-import Plant from '../ultils/Plant';
-import solarSystemTexture from '~/public/image';
+import { useRef } from 'react';
+import Plant from '../ultils';
+import datas from '~/data/plants';
+import { useFrame } from '@react-three/fiber';
 
-function Neptune({}, ref) {
+function Neptune() {
+    const data = datas.neptune;
+
+    const ObjectRef = useRef();
+    useFrame(() => {
+        ObjectRef.current.rotateY(data.speedRevolution);
+    });
+
     return (
-        <group ref={ref.neptuneObjectRef}>
+        <group ref={ObjectRef}>
             <Plant
-                radius={7}
-                img={solarSystemTexture.neptuneTexture}
+                radius={data.radius}
+                img={data.img}
                 type={'standard'}
-                position={200}
-                ref={ref.neptuneRef}
+                position={data.position}
+                speedRotation={data.speedRotation}
             />
         </group>
     );
 }
 
-export default forwardRef(Neptune);
+export default Neptune;

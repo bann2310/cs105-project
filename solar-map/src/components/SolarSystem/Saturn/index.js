@@ -1,21 +1,28 @@
-import { forwardRef } from 'react';
-import Plant from '../ultils/Plant';
-import Ring from '../ultils/Ring';
-import solarSystemTexture from '~/public/image';
+import { useRef } from 'react';
+import Plant from '../ultils';
+import datas from '~/data/plants';
+import { useFrame } from '@react-three/fiber';
 
-function Saturn({}, ref) {
+function Saturn() {
+    const data = datas.saturn;
+
+    const ObjectRef = useRef();
+    useFrame(() => {
+        ObjectRef.current.rotateY(data.speedRevolution);
+    });
+
     return (
-        <group ref={ref.saturnObjectRef}>
+        <group ref={ObjectRef}>
             <Plant
-                radius={10}
-                img={solarSystemTexture.saturnTexture}
+                radius={data.radius}
+                img={data.img}
                 type={'standard'}
-                position={138}
-                ref={ref.saturnRef}
+                position={data.position}
+                speedRotation={data.speedRotation}
+                ring={data.ring}
             />
-            <Ring innerRadius={10} outerRadius={20} img={solarSystemTexture.saturnRingTexture} position={138} />
         </group>
     );
 }
 
-export default forwardRef(Saturn);
+export default Saturn;

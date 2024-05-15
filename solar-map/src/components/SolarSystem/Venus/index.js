@@ -1,19 +1,27 @@
-import { forwardRef } from 'react';
-import Plant from '../ultils/Plant';
-import solarSystemTexture from '~/public/image';
+import { useRef } from 'react';
+import Plant from '../ultils';
+import datas from '~/data/plants';
+import { useFrame } from '@react-three/fiber';
 
-function Venus({}, ref) {
+function Venus() {
+    const data = datas.venus;
+
+    const ObjectRef = useRef();
+    useFrame(() => {
+        ObjectRef.current.rotateY(data.speedRevolution);
+    });
+
     return (
-        <group ref={ref.venusObjectRef}>
+        <group ref={ObjectRef}>
             <Plant
-                radius={5.8}
-                img={solarSystemTexture.venusTexture}
+                radius={data.radius}
+                img={data.img}
                 type={'standard'}
-                position={44}
-                ref={ref.venusRef}
+                position={data.position}
+                speedRotation={data.speedRotation}
             />
         </group>
     );
 }
 
-export default forwardRef(Venus);
+export default Venus;

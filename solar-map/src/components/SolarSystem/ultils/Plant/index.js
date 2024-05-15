@@ -1,8 +1,16 @@
-import { useLoader } from '@react-three/fiber';
+import { useFrame, useLoader } from '@react-three/fiber';
+import { useRef } from 'react';
 import { TextureLoader } from 'three';
-import { forwardRef } from 'react';
-function Plant({ radius, img, type, position }, ref) {
+import Ring from '../Ring';
+function Plant({ radius, img, type, position, speedRotation, ring }) {
     const texture = useLoader(TextureLoader, img);
+
+    const meshRef = useRef();
+
+    useFrame(() => {
+        meshRef.current.rotateY(speedRotation);
+    });
+
     const TypeMaterial = {
         basic({ texture }) {
             return <meshBasicMaterial map={texture} />;
@@ -13,12 +21,24 @@ function Plant({ radius, img, type, position }, ref) {
     };
     const Component = TypeMaterial[type];
 
+    const randomZ = Math.ceil(Math.random() * position);
+
     return (
-        <mesh ref={ref} position={[position, 0, 0]}>
-            <sphereGeometry args={[radius]} />
-            <Component texture={texture} />
-        </mesh>
+        <>
+            <mesh ref={meshRef} position={[position, 0, randomZ]}>
+                <sphereGeometry args={[radius]} />
+                <Component texture={texture} />
+            </mesh>
+            {ring && (
+                <Ring
+                    innerRadius={ring.innerRadius}
+                    outerRadius={ring.outerRadius}
+                    img={ring.texture}
+                    position={{ position, randomZ }}
+                />
+            )}
+        </>
     );
 }
 
-export default forwardRef(Plant);
+export default Plant;

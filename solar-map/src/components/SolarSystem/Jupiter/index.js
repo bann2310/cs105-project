@@ -1,19 +1,27 @@
-import { forwardRef } from 'react';
-import Plant from '../ultils/Plant';
-import solarSystemTexture from '~/public/image';
+import { useRef } from 'react';
+import Plant from '../ultils';
+import datas from '~/data/plants';
+import { useFrame } from '@react-three/fiber';
 
-function Jupiter({}, ref) {
+function Jupiter() {
+    const data = datas.jupiter;
+
+    const ObjectRef = useRef();
+    useFrame(() => {
+        ObjectRef.current.rotateY(data.speedRevolution);
+    });
+
     return (
-        <group ref={ref.jupiterObjectRef}>
+        <group ref={ObjectRef}>
             <Plant
-                radius={12}
-                img={solarSystemTexture.jupiterTexture}
+                radius={data.radius}
+                img={data.img}
                 type={'standard'}
-                position={100}
-                ref={ref.jupiterRef}
+                position={data.position}
+                speedRotation={data.speedRotation}
             />
         </group>
     );
 }
 
-export default forwardRef(Jupiter);
+export default Jupiter;

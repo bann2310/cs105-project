@@ -1,19 +1,27 @@
-import { forwardRef } from 'react';
-import Plant from '../ultils/Plant';
-import solarSystemTexture from '~/public/image';
+import { useRef } from 'react';
+import Plant from '../ultils';
+import datas from '~/data/plants';
+import { useFrame } from '@react-three/fiber';
 
-function Earth({}, ref) {
+function Earth() {
+    const data = datas.earth;
+
+    const ObjectRef = useRef();
+    useFrame(() => {
+        ObjectRef.current.rotateY(data.speedRevolution);
+    });
+
     return (
-        <group ref={ref.earthObjectRef}>
+        <group ref={ObjectRef}>
             <Plant
-                radius={6}
-                img={solarSystemTexture.earthTexture}
+                radius={data.radius}
+                img={data.img}
                 type={'standard'}
-                position={62}
-                ref={ref.earthRef}
+                position={data.position}
+                speedRotation={data.speedRotation}
             />
         </group>
     );
 }
 
-export default forwardRef(Earth);
+export default Earth;
