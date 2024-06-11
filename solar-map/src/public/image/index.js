@@ -1,4 +1,6 @@
 import earthTexture from './earth.jpg';
+import earthNightTexture from './earth_nightmap.jpg';
+import moonTexture from './moon.jpg';
 import jupiterTexture from './jupiter.jpg';
 import marsTexture from './mars.jpg';
 import mercuryTexture from './mercury.jpg';
@@ -12,8 +14,10 @@ import uranusRingTexture from './uranus ring.png';
 import uranusTexture from './uranus.jpg';
 import venusTexture from './venus.jpg';
 
-const solarSystemTexture =  {
+const solarSystemTexture = {
     earthTexture,
+    earthNightTexture,
+    moonTexture,
     jupiterTexture,
     marsTexture,
     mercuryTexture,

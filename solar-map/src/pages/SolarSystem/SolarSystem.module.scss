@@ -1,0 +1,17 @@
+.container {
+    height: 750px;
+    width: 100%;
+    position: relative;
+}
+.information {
+    padding: 20px;
+    height: 500px;
+    width: 400px;
+    background-color: #ffffff;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}

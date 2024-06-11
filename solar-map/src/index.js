@@ -3,12 +3,21 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from '~/components/GlobalStyles';
+import { HoverProvider } from '~/components/SolarSystemv2/stores/hoverStore';
+import { ClickProvider } from '~/components/SolarSystemv2/stores/clickStore';
+import { InforProvider } from './components/Information/informationStore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <GlobalStyles>
-            <App />
+            <HoverProvider>
+                <ClickProvider>
+                    <InforProvider>
+                        <App />
+                    </InforProvider>
+                </ClickProvider>
+            </HoverProvider>
         </GlobalStyles>
     </React.StrictMode>,
 );
