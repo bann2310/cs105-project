@@ -22,10 +22,6 @@ function Moon() {
 
     const handleClick = () => {};
 
-    const handleHover = () => {};
-
-    const handleHoverOut = () => {};
-
     useFrame(() => {
         revolution();
     });
@@ -37,8 +33,6 @@ function Moon() {
                 speedRotation={data.current.speedRotation * state.factorRotation}
                 texture={[texture]}
                 tittle={data.current.tittle}
-                onPointerEnter={handleHover}
-                onPointerOut={handleHoverOut}
                 onClick={handleClick}
             />
         </group>

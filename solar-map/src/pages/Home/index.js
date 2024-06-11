@@ -16,10 +16,10 @@ function Home() {
                 <h1 className={cx('tittle')}>Solar System Software</h1>
                 <div className={cx('content-button')}>
                     <Link to="/solarsystem">
-                        <button className={cx('button')}>Hệ mặt trời</button>
+                        <button className={cx('button')}>Solar System</button>
                     </Link>
                     <Link to="/adventurefpp">
-                        <button className={cx('button')}>Phiêu lưu với góc nhìn thứ nhất</button>
+                        <button className={cx('button')}>First-Person Perspective</button>
                     </Link>
                 </div>
             </div>

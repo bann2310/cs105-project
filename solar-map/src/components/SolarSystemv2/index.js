@@ -5,6 +5,12 @@ import Sun from './components/Sun';
 import Mercury from './components/Mercury';
 import Venus from './components/Venus';
 import Earth from './components/Earth';
+import Mars from './components/Mars';
+import Jupiter from './components/Jupiter';
+import Saturn from './components/Saturn';
+import Uranus from './components/Uranus';
+import Neptune from './components/Neptune';
+import Pluto from './components/Pluto';
 
 function CanvasSolarSystem() {
     return (
@@ -15,7 +21,13 @@ function CanvasSolarSystem() {
             <Mercury />
             <Venus />
             <Earth />
+            <Mars />
             <Stars />
+            <Jupiter />
+            <Saturn />
+            <Uranus />
+            <Neptune />
+            <Pluto />
             {/* <Plane /> */}
         </>
     );

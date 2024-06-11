@@ -6,13 +6,11 @@ import { Planets } from '~/data';
 import { ContextFactor } from '~/components/GlobalStyles/store';
 import { ClickContext } from '../../stores/clickStore';
 import { InforContext } from '~/components/Information/informationStore';
-import Moon from '../Moon';
 
-function Earth() {
-    const data = useRef(Planets.earth);
+function Jupiter() {
+    const data = useRef(Planets.jupiter);
     const state = useContext(ContextFactor);
-    const texture = new THREE.TextureLoader().load(data.current.img[0]);
-    const textureEmisive = new THREE.TextureLoader().load(data.current.img[1]);
+    const texture = new THREE.TextureLoader().load(data.current.img);
 
     const objectRef = useRef();
 
@@ -93,7 +91,6 @@ function Earth() {
             flow();
         }
     });
-
     return (
         <group ref={objectRef} position={[data.current.position, 0, 0]}>
             <Planet
@@ -102,11 +99,9 @@ function Earth() {
                 texture={[texture]}
                 tittle={data.current.tittle}
                 onClick={handleClick}
-                emissive={{ emissiveMap: textureEmisive, emissiveIntensity: 1, emissive: '#ffffff' }}
             />
-            <Moon />
         </group>
     );
 }
 
-export default memo(Earth);
+export default memo(Jupiter);
