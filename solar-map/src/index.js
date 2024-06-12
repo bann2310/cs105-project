@@ -6,6 +6,7 @@ import GlobalStyles from '~/components/GlobalStyles';
 import { HoverProvider } from '~/components/SolarSystemv2/stores/hoverStore';
 import { ClickProvider } from '~/components/SolarSystemv2/stores/clickStore';
 import { InforProvider } from './components/Information/informationStore';
+import { StatusProvider } from './pages/Adventurefpp/provider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,9 @@ root.render(
             <HoverProvider>
                 <ClickProvider>
                     <InforProvider>
-                        <App />
+                        <StatusProvider>
+                            <App />
+                        </StatusProvider>
                     </InforProvider>
                 </ClickProvider>
             </HoverProvider>

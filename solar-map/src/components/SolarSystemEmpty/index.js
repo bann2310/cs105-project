@@ -8,7 +8,7 @@ import Saturn from './components/Saturn';
 import Sun from './components/Sun';
 import Uranus from './components/Uranus';
 import Venus from './components/Venus';
-import Stars from './ultils/Stars';
+import { Stars } from '@react-three/drei';
 
 function CanvasSolarSystemEmpty() {
     return (
@@ -23,6 +23,7 @@ function CanvasSolarSystemEmpty() {
             <Uranus />
             <Neptune />
             <Pluto />
+            <Stars />
         </>
     );
 }

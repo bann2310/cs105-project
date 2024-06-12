@@ -1,9 +1,15 @@
-import { createContext } from 'react';
-const ControlContext = createContext();
+import { createContext, useState } from 'react';
 
+const ControlContext = createContext();
 function ControlProvider({ children, control }) {
     const controlRef = control;
     return <ControlContext.Provider value={controlRef}>{children}</ControlContext.Provider>;
 }
 
-export { ControlContext, ControlProvider };
+const StatusContext = createContext();
+function StatusProvider({ children, control }) {
+    const [status, setStatus] = useState(false);
+    return <StatusContext.Provider value={[status, setStatus]}>{children}</StatusContext.Provider>;
+}
+
+export { ControlContext, ControlProvider, StatusContext, StatusProvider };

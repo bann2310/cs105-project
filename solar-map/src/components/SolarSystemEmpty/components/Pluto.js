@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Planets, factorDistancefpp, factorRadiusfpp, factorRevolutionfpp, factorRotationfpp } from '~/data';
 import Planet from '../ultils/Planet';
-import { ControlContext } from '~/pages/Adventurefpp/provider';
+import { ControlContext, StatusContext } from '~/pages/Adventurefpp/provider';
 
 function Pluto() {
     const data = useRef(Planets.pluto);
@@ -24,8 +24,20 @@ function Pluto() {
             Math.sin(factorRevolutionfpp * 2 * Math.PI * elapsedTime + phi.current);
     }, []);
 
+    const [, setStatus] = useContext(StatusContext);
+    const { camera } = useThree();
     useFrame(() => {
         revolution();
+        const objectPosition = objectRef.current.position;
+        const cameraPosition = camera.position;
+        const d = Math.sqrt(
+            Math.pow(objectPosition.x - cameraPosition.x, 2) +
+                Math.pow(objectPosition.y - cameraPosition.y, 2) +
+                Math.pow(objectPosition.z - cameraPosition.z, 2),
+        );
+        if (d < data.current.radius + 3) {
+            setStatus(true);
+        }
     });
 
     return (

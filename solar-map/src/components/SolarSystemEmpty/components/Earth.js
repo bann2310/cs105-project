@@ -1,7 +1,7 @@
 import { useRef, useCallback, useContext, useEffect } from 'react';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
-import { ControlContext } from '~/pages/Adventurefpp/provider';
+import { StatusContext } from '~/pages/Adventurefpp/provider';
 import { Planets, factorDistancefpp, factorRadiusfpp, factorRevolutionfpp, factorRotationfpp } from '~/data';
 import Planet from '../ultils/Planet';
 import Moon from './Moon';
@@ -10,8 +10,6 @@ function Earth() {
     const data = useRef(Planets.earth);
     const texture = new THREE.TextureLoader().load(data.current.img[[0]]);
     const textureEmissive = new THREE.TextureLoader().load(data.current.img[[1]]);
-
-    
 
     const objectRef = useRef();
     const clock = useRef(new THREE.Clock());
@@ -28,21 +26,19 @@ function Earth() {
             Math.sin(factorRevolutionfpp * 2 * Math.PI * elapsedTime + phi.current);
     }, []);
 
-    const control = useContext(ControlContext);
+    const [, setStatus] = useContext(StatusContext);
     const { camera } = useThree();
     useFrame(() => {
         revolution();
-        const cameraPosition = camera.position;
         const objectPosition = objectRef.current.position;
+        const cameraPosition = camera.position;
         const d = Math.sqrt(
             Math.pow(objectPosition.x - cameraPosition.x, 2) +
                 Math.pow(objectPosition.y - cameraPosition.y, 2) +
                 Math.pow(objectPosition.z - cameraPosition.z, 2),
         );
-        if (d < data.current.radius + 5) {
-            control.current.movementSpeed = 0.03 * data.current.radius;
-        } else {
-            control.current.movementSpeed = 10;
+        if (d < data.current.radius + 3) {
+            setStatus(true);
         }
     });
 
